@@ -1,0 +1,27 @@
+# ENTREVISTA {#entrevista}
+
+Você tem uma função que gera números no intervalo $[0, 1]$ aleatoriamente e distribuídos de maneira uniforme. Calcule o valor de $\pi$.
+
+```{r wat, echo = FALSE, fig.cap = "qualquer estudante ao se deparar com uma pergunta dessas"}
+
+knitr::include_graphics('img/wat.jpg')
+
+```
+
+À primeira vista, essa é uma pergunta completamente absurda do tipo que um entusiasta de *coaching* faria em uma entrevista, como "se você fosse um animal, qual seria?". Felizmente, esse não é o caso.
+
+O R possui uma função para geração de números aleatórios uniformemente distribuídos em um intervalo arbitrário, a `runif()` — lembre de *Random* e *UNIForm*. Para que esse exemplo seja reprodutível, vamos definir um *seed* para que você possa encontrar os mesmos números aleatórios.
+
+```{r res1}
+
+# seed
+set.seed(1)
+
+# criar vetor de pontos
+pontos = runif(n = 10, min = 0, max = 1)
+
+# exibir 5 primeiros elementos do vetor
+head(pontos)
+
+```
+

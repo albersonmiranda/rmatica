@@ -2,7 +2,7 @@
 
 Você tem uma função que gera números no intervalo $[0, 1]$ aleatoriamente e distribuídos de maneira uniforme. Calcule o valor de $\pi$.
 
-```{r wat, echo = FALSE, fig.cap = "qualquer estudante ao se deparar com uma pergunta dessas"}
+```{r wat, echo = FALSE, out.width = 300, fig.cap = "qualquer estudante ao se deparar com uma pergunta dessas"}
 
 knitr::include_graphics('img/wat.jpg')
 
@@ -10,18 +10,47 @@ knitr::include_graphics('img/wat.jpg')
 
 À primeira vista, essa é uma pergunta completamente absurda do tipo que um entusiasta de *coaching* faria em uma entrevista, como "se você fosse um animal, qual seria?". Felizmente, esse não é o caso.
 
-O R possui uma função para geração de números aleatórios uniformemente distribuídos em um intervalo arbitrário, a `runif()` — lembre de *Random* e *UNIForm*. Para que esse exemplo seja reprodutível, vamos definir um *seed* para que você possa encontrar os mesmos números aleatórios.
+O R possui uma função nativa para geração de números aleatórios uniformemente distribuídos em um intervalo arbitrário, a `runif()`^[Lembre de *Random* e *UNIForm*]. Criaremos um vetor $x$ para esses números.
 
-```{r res1}
+Obs.: Para que esse exemplo seja reprodutível, vamos definir um *seed* para que você possa encontrar os mesmos números aleatórios.
+
+```{r ent1}
 
 # seed
 set.seed(1)
 
 # criar vetor de pontos
-pontos = runif(n = 10, min = 0, max = 1)
+x = runif(n = 10, min = 0, max = 1)
 
 # exibir 5 primeiros elementos do vetor
-head(pontos)
+head(x)
+
+```
+Se plotarmos esse vetor, temos uma representação unidimensional em uma reta.
+
+```{r ent2}
+
+# gráfico 1-D
+stripchart(x)
 
 ```
 
+E se usarmos a função novamente para gerar um vetor $y$ representando uma segunda dimensão? Podemos organizar isso em um data frame:
+
+```{r ent3}
+
+# seed
+set.seed(2)
+
+# criar vetor y
+y = runif(10)
+
+# data frame
+data = data.frame(x, y)
+
+head(data)
+
+# plot
+plot(data)
+
+```
